@@ -15,12 +15,24 @@ import javafx.stage.Stage;
 public class HelloJPro extends Application {
 
     @Override
-    public void start(Stage stage) {
-        Label label = new Label("Hello JPro!");
-        label.setFont(new Font(50));
-        label.setAlignment(Pos.CENTER);
-        stage.setScene(new Scene(label));
-        stage.show();
+   public void start(Stage primaryStage) {
+        Pane root = new Pane();
+        for (int i = 0; i < 8; i++) {
+            Rectangle rectangle = new Rectangle();
+            rectangle.setX(250);
+            rectangle.setY(200);
+            rectangle.setWidth(70);
+            rectangle.setHeight(200);
+            rectangle.setFill(Color.color(Math.random(),Math.random(),Math.random()));
+            rectangle.setStroke(Color.color(Math.random(),Math.random(),Math.random()));
+            rectangle.setStrokeWidth(5);
+            rectangle.setRotate(i * 360.0 / 8);
+            root.getChildren().add(rectangle);
+        }
+
+        Scene scene = new Scene(root, 600, 600);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     /**
